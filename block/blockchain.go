@@ -17,9 +17,9 @@ import (
 
 const (
 	MINING_DIFFICULTY = 3
-	MINING_SENDER     = "THE BLOCKCHAIN"
+	MINING_SENDER     = "MERGEN"
 	MINING_REWARD     = 1.0
-	MINING_TIMER_SEC  = 20
+	MINING_TIMER_SEC  = 6
 
 	BLOCKCHAIN_PORT_RANGE_START       = 5000
 	BLOCKCHAIN_PORT_RANGE_END         = 5003
@@ -258,7 +258,7 @@ func (bc *Blockchain) AddTransaction(sender string, recipient string, value floa
 	}
 
 	if bc.VerifyTransactionSignature(senderPublicKey, s, t) {
-		
+
 		if bc.CalculateTotalAmount(sender) < value {
 			log.Println("ERROR: Not enough balance in a wallet")
 			return false
